@@ -39,11 +39,11 @@
     }
 
     .envelope-icon {
-    width: 180px;
-    height: 180px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    animation: pulse 2s infinite;
+      width: 180px;
+      height: 180px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
@@ -85,13 +85,62 @@
       text-align: center;
     }
 
-  .countdown {
-    font-size: clamp(20px, 5vw, 28px);
-    margin-top: 10px;
-    letter-spacing: 4px;
-    color: #7b6b4c;
-    font-weight: bold;
-  }
+    .countdown {
+      font-size: clamp(20px, 5vw, 28px);
+      margin-top: 10px;
+      letter-spacing: 4px;
+      color: #7b6b4c;
+      font-weight: bold;
+    }
+
+    .screen2-content {
+      text-align: center;
+    }
+
+    .wegettingmarried {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #7b6b4c;
+    }
+
+    .wedding-photo {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .screen2-names {
+      font-size: 1.8em;
+      margin: 5px 0;
+      color: #7b6b4c;
+    }
+
+    .calendar-date {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .calendar-date .month,
+    .calendar-date .year {
+      font-size: 1em;
+    }
+
+    .calendar-date .day {
+      font-size: 2em;
+      color: #a52a2a;
+    }
+
+    .lunar-date {
+      font-size: 0.9em;
+      font-style: italic;
+      color: #555;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -108,9 +157,11 @@
     </div>
 
     <div id="screen2" class="hidden">
-      <div class="logo">P&Đ</div>
-       <div class="subtitle">WE WILL BECOME HUSBAND AND WIFE IN</div>
-      <div class="countdown" id="countdown">00 : 00 : 00 : 00</div>
+      <div class="screen2-content">
+        <div class="wegettingmarried">We're getting married</div>
+        <img src="https://github.com/tphat412/wedding-invitation/blob/main/EJK02728%20-%20Copy.jpg" alt="Wedding Photo" class="wedding-photo">
+        <div class="screen2-names">NGUYỄN THANH PHÁT & ĐÀO XUÂN ĐÀO</div>
+      </div>
     </div>
   </div>
 
@@ -132,7 +183,7 @@
         const distance = target - now;
 
         if (distance <= 0) {
-          countdownEl.innerText = "00 : 00 : 00 : 00";
+          if(countdownEl) countdownEl.innerText = "00 : 00 : 00 : 00";
           clearInterval(interval);
           return;
         }
@@ -142,7 +193,7 @@
         const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
         const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
 
-        countdownEl.innerText = `${days} : ${hours} : ${minutes} : ${seconds}`;
+        if(countdownEl) countdownEl.innerText = `${days} : ${hours} : ${minutes} : ${seconds}`;
       }
 
       update();
