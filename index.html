@@ -156,24 +156,31 @@
     }
 
     .location-section {
-      margin-top: 20px;
       color: #7b6b4c;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .map-container iframe {
       width: 100%;
       max-width: 600px;
       height: 300px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .directions-link a {
       color: #7b6b4c;
       font-weight: bold;
       text-decoration: underline;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .directions-link a:hover {
       color: #a52a2a;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     /* Animations */
@@ -186,6 +193,126 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+.album-section {
+  max-width: 800px; /* or match your header image width */
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.album-slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;      /* Let it fit small screens */
+  margin: 0 auto;
+}
+
+.album-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.album-track img {
+  flex: 0 0 100%;       /* Show 1 image at a time */
+  width: 100%;          /* Full width of container */
+  height: auto;
+  border-radius: 8px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(123, 107, 76, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 5px 10px;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 5px;
+}
+
+.arrow.right {
+  right: 5px;
+}
+
+@media (max-width: 600px) {
+  .arrow {
+    font-size: 1.5em;
+    padding: 3px 6px;
+  }
+}
+
+.screen2-names {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Adjust this smaller to reduce spacing */
+  font-size: 1.8em;
+  color: #7b6b4c;
+}
+
+.name-left, .name-right {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ampersand {
+  font-size: 1.5em;
+}
+
+.become-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;  /* bạn chỉnh to/nhỏ tùy ý */
+  margin-bottom: 5px;
+  color: #7b6b4c;
+  white-space: nowrap;
+}
+
+.bank-section {
+  margin-top: 30px;
+  padding: 10px 20px;
+  text-align: center;
+  color: #7b6b4c;
+}
+
+.bank-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.bank-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.bank-details {
+  text-align: left;
+  font-size: 1em;
+}
+
+.bank-qr img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.thank-note {
+  margin-top: 15px;
+  font-size: 1.1em;
+  font-style: italic;
+  color: #7b6b4c;
+}
   </style>
 </head>
 <body>
@@ -199,34 +326,61 @@
 
     <div id="screen2" class="hidden">
       <div class="wedding-title animate">We're getting married</div>
-      <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/EJK02728%20-%20Copy.jpg" alt="Wedding Photo" class="wedding-photo animate">
+      <div class="album-section animate">
+          <div class="album-slider">
+            <button class="arrow left" onclick="scrollAlbum(-1)">&#10094;</button>
+              <div class="album-track" id="albumTrack">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_01.jpg" alt="Album photo 1">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_02.jpg" alt="Album photo 2">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_03.jpg" alt="Album photo 3">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_04.jpg" alt="Album photo 4">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_05.jpg" alt="Album photo 5">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_06.jpg" alt="Album photo 6">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_07.jpg" alt="Album photo 7">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_08.jpg" alt="Album photo 8">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_09.jpg" alt="Album photo 9">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_10.jpg" alt="Album photo 10">
+                <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/30x30%20xuan%20dao_11.jpg" alt="Album photo 11">
+                </div>
+              <button class="arrow right" onclick="scrollAlbum(1)">&#10095;</button>
+            </div>
 
       <div class="family-info animate">
         <div class="family-columns">
-          <div class="family-side">
-            <div class="title">NHÀ GÁI</div>
-            <div>Ông. Đào Văn Lợi</div>
-            <div>Bà. Lâm Thị Thanh Nguyệt</div>
-            <div>TX. Tân Châu</div>
-          </div>
-          <div class="divider"></div>
           <div class="family-side">
             <div class="title">NHÀ TRAI</div>
             <div>Ông. Nguyễn Thanh Tiến</div>
             <div>Bà. Nguyễn Thị Thúy Diễm</div>
             <div>TP. Long Xuyên</div>
           </div>
+          <div class="divider"></div>
+          <div class="family-side">
+            <div class="title">NHÀ GÁI</div>
+            <div>Ông. Đào Văn Lợi</div>
+            <div>Bà. Lâm Thị Thanh Nguyệt</div>
+            <div>TX. Tân Châu</div>
+          </div>
         </div>
         <div class="invite-text">Thân mời đến dự lễ thành hôn của chúng tôi!</div>
       </div>
 
-      <div class="screen2-names animate">
-        <div>NGUYỄN</div><div></div><div>ĐÀO</div>
-        <div>THANH</div><div>&</div><div>XUÂN</div>
-        <div>PHÁT</div><div></div><div>ĐÀO</div>
-      </div>
+<div class="screen2-names">
+  <div class="name-left">
+    <div>NGUYỄN</div>
+    <div>THANH</div>
+    <div>PHÁT</div>
+  </div>
+  <div class="ampersand">&</div>
+  <div class="name-right">
+    <div>ĐÀO</div>
+    <div>XUÂN</div>
+    <div>ĐÀO</div>
+  </div>
+</div>
+
 
       <div class="wedding-calendar animate">
+        <div class="become-text">We will become husband and wife in:</div>
         <div class="year">2025</div>
         <div class="month-script">July</div>
         <div class="countdown" id="countdown">Loading countdown...</div>
@@ -241,8 +395,7 @@
       </div>
 
       <div class="location-section animate">
-        <div class="location-title">Địa điểm:</div>
-        <div class="location-address">Nhà hàng Tiệc Cưới Thu Thủy<br> 516B Ung Văn Khiêm, P. Mỹ Xuyên, TP. Long Xuyên</div>
+        <div class="location-address">Tại Nhà hàng Tiệc Cưới Thu Thủy<br> 516B Ung Văn Khiêm, P. Mỹ Xuyên, TP. Long Xuyên</div>
         <div class="map-container">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.6113793475674!2d105.4316084112925!3d10.372925266462564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a73b74752d315%3A0x6d3d78db452f85fb!2zTmjDoCBIw6BuZyBUaHUgVGh14bu3!5e0!3m2!1svi!2s!4v1750579443125!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -253,7 +406,25 @@
         </div>
       </div>
 
+      <div class="bank-section animate">
+  <div class="bank-title">Thông tin chuyển khoản mừng cưới:</div>
+  <div class="bank-info">
+    <div class="bank-details">
+      <div><strong>Ngân hàng:</strong> BIDV</div>
+      <div><strong>Chủ tài khoản:</strong> Nguyễn Thanh Phát</div>
+      <div><strong>Số tài khoản:</strong> 7011001315</div>
+      <div><strong>Chi nhánh:</strong> Long Xuyên</div>
     </div>
+    <div class="bank-qr">
+      <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/QR.png" alt="QR chuyển khoản" />
+    </div>
+  </div>
+</div>
+
+<div class="thank-note animate">
+  Chúng tôi rất mong nhận được sự hiện diện của bạn trong ngày vui trọng đại này!
+</div>
+
   </div>
 
   <script>
@@ -279,6 +450,35 @@
       document.getElementById("screen1").classList.add("hidden");
       document.getElementById("screen2").classList.remove("hidden");
     });
+
+let currentIndex = 0;
+
+function scrollAlbum(direction) {
+  const track = document.getElementById("albumTrack");
+  const images = track.querySelectorAll("img");
+  const totalImages = images.length;
+
+  currentIndex += direction;
+
+  if (currentIndex < 0) currentIndex = 0;
+  if (currentIndex >= totalImages - 1) currentIndex = totalImages - 1;
+
+  const sliderWidth = track.parentElement.clientWidth;
+  track.style.transform = `translateX(-${currentIndex * sliderWidth}px)`;
+
+  updateArrows();
+}
+
+function updateArrows() {
+  const arrowLeft = document.getElementById("arrowLeft");
+  const arrowRight = document.getElementById("arrowRight");
+
+  arrowLeft.style.display = currentIndex === 0 ? "none" : "block";
+  arrowRight.style.display = currentIndex === document.getElementById("albumTrack").querySelectorAll("img").length - 1 ? "none" : "block";
+}
+
+// Initialize on load
+window.onload = updateArrows;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
