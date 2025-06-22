@@ -79,13 +79,18 @@
       display: flex;
       justify-content: center;
       align-items: stretch;
-      gap: 20px;
+      gap: 40px;
       flex-wrap: wrap;
     }
 
     .family-side {
-      min-width: 120px;
-      flex: 1 1 120px;
+      min-width: auto; /* Let it shrink naturally */
+      max-width: 200px; /* Limit width if needed */
+      word-wrap: break-word; /* Allow wrapping if needed */
+    }
+
+    .family-side div {
+      white-space: nowrap; /* Keep each line together */
     }
 
     .divider {
