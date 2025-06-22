@@ -21,8 +21,16 @@
       text-align: center;
       color: #7b6b4c;
       padding: 20px;
+      min-height: 100vh;
+      justify-content: center; /* center vertically */
     }
-    .hidden { display: none; } 
+    .hidden { display: none; }
+    
+    .invite-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
 
     .names, .date {
       font-size: clamp(20px, 5vw, 28px);
@@ -30,13 +38,16 @@
       margin-bottom: 10px;
     }
 
-    .date { margin-bottom: 20px; }
+    .date {
+       font-family: 'Great Vibes', cursive;
+    }
 
     .click-image {
       max-width: 180px;
       cursor: pointer;
       transition: transform 0.3s;
       animation: pulse 2s infinite;
+      margin-top: 10px;
     }
     @keyframes pulse {
       0% { transform: scale(1); }
@@ -57,29 +68,31 @@
       max-width: 300px;
       border-radius: 10px;
       margin: 10px 0;
+      width: 100%;
     }
 
     .family-info {
       margin: 20px 0;
     }
+
     .family-columns {
       display: flex;
       justify-content: center;
       align-items: stretch;
-      gap: 40px;
+      gap: 20px;
       flex-wrap: wrap;
     }
+
     .family-side {
       min-width: 120px;
+      flex: 1 1 120px;
     }
-    .family-side .title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+
     .divider {
       width: 1px;
       background-color: #7b6b4c;
     }
+
     .invite-text {
       font-style: italic;
       font-size: 1.1em;
@@ -90,7 +103,7 @@
       display: grid;
       grid-template-columns: auto auto auto;
       gap: 10px 20px;
-      font-size: 1.8em;
+      font-size: 1.5em;
       margin: 20px 0;
     }
 
@@ -98,59 +111,52 @@
       max-width: 300px;
       margin: 20px auto;
     }
+
     .wedding-calendar .year{
       font-size: 3em;
       font-weight: bold;
     }
+
     .wedding-calendar .month-script {
       font-family: 'Great Vibes', cursive;
       font-size: 2em;
       margin-bottom: 10px;
     }
+
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 5px;
       font-size: 0.9em;
     }
+
     .calendar-grid div {
       padding: 5px 0;
     }
+
     .calendar-grid .highlight {
       background: #530c0c;
       color: #fff;
       border-radius: 50%;
     }
+
     #countdown {
-      font-size: 2em;  /* Make it bigger — adjust as you like */
+      font-size: 1.8em;
       font-weight: bold;
-      letter-spacing: 4px; /* Spacing between numbers */
+      letter-spacing: 4px;
       margin: 10px 0;
       color: #7b6b4c;
-      text-align: center;
     }
-      
+
     .location-section {
       margin-top: 20px;
       color: #7b6b4c;
     }
 
-    .location-title {
-      margin-top: 10px;
-      font-weight: bold;
-      font-size: 1.5em;
-      margin-bottom: 5px;
-    }
-
-    .location-address {
-      margin-top: 10px;
-      font-size: 1em;
-      margin-bottom: 10px;
-    }
-
-    .map-container {
-      margin-top: 10px;
-      margin-bottom: 10px;
+    .map-container iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
     }
 
     .directions-link a {
@@ -158,6 +164,7 @@
       font-weight: bold;
       text-decoration: underline;
     }
+
     .directions-link a:hover {
       color: #a52a2a;
     }
@@ -176,13 +183,11 @@
 </head>
 <body>
   <div class="container">
-    <div class="container">
-      <div id="screen1">
+    <div id="screen1">
+      <div class="invite-title">Thư mời tham dự tiệc cưới</div>
       <div class="names">THANH PHÁT & XUÂN ĐÀO</div>
       <div class="date">20.07.2025</div>
-      <!-- Replaced SVG button with image -->
-      <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/218e3c9ab59b0d1e45e206f975bffd03.png" 
-      alt="Open Invitation" class="click-image" id="envelopeImg">
+      <img src="https://raw.githubusercontent.com/tphat412/wedding-invitation/main/218e3c9ab59b0d1e45e206f975bffd03.png" alt="Open Invitation" class="click-image" id="envelopeImg">
     </div>
 
     <div id="screen2" class="hidden">
@@ -214,7 +219,6 @@
         <div>PHÁT</div><div></div><div>ĐÀO</div>
       </div>
 
-
       <div class="wedding-calendar animate">
         <div class="year">2025</div>
         <div class="month-script">July</div>
@@ -228,46 +232,39 @@
           <div>28</div><div>29</div><div>30</div><div>31</div><div></div><div></div><div></div>
         </div>
       </div>
+
       <div class="location-section animate">
-      <div class="location-title">Địa điểm:</div>
-      <div class="location-address">Nhà hàng Tiệc Cưới Thu Thủy<br> 516B Ung Văn Khiêm, P. Mỹ Xuyên, TP. Long Xuyên</div>
-
-      <!-- Embedded Google Map -->
-      <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.6113793475674!2d105.4316084112925!3d10.372925266462564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a73b74752d315%3A0x6d3d78db452f85fb!2zTmjDoCBIw6BuZyBUaHUgVGh14bu3!5e0!3m2!1svi!2s!4v1750579443125!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="location-title">Địa điểm:</div>
+        <div class="location-address">Nhà hàng Tiệc Cưới Thu Thủy<br> 516B Ung Văn Khiêm, P. Mỹ Xuyên, TP. Long Xuyên</div>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.6113793475674!2d105.4316084112925!3d10.372925266462564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a73b74752d315%3A0x6d3d78db452f85fb!2zTmjDoCBIw6BuZyBUaHUgVGh14bu3!5e0!3m2!1svi!2s!4v1750579443125!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="directions-link">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Nhà+Hàng+Thu+Thuỷ" target="_blank">
+            Chỉ đường đến Nhà hàng Tiệc Cưới Thu Thủy
+          </a>
+        </div>
       </div>
 
-    <!-- Chỉ Đường link -->
-    <div class="directions-link">
-      <a href="https://www.google.com/maps/dir/?api=1&destination=Nhà+Hàng+Thu+Thuỷ" target="_blank">
-        Chỉ đường đến Nhà hàng Tiệc Cưới Thu Thủy
-      </a>
-      </div>
-  </div>
     </div>
   </div>
 
   <script>
     const weddingDate = new Date("2025-07-20T11:00:00").getTime();
-
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = weddingDate - now;
-
       if (distance <= 0) {
         document.getElementById("countdown").innerText = "00 : 00 : 00 : 00";
         clearInterval(countdownInterval);
         return;
       }
-
       const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
       const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
       const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
       const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
-
       document.getElementById("countdown").innerText = `${days} : ${hours} : ${minutes} : ${seconds}`;
     }
-
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 
@@ -276,8 +273,6 @@
       document.getElementById("screen2").classList.remove("hidden");
     });
 
-
-    // Scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
