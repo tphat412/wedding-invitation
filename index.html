@@ -76,29 +76,37 @@
       font-size: 0.85em;
     }
 
-    .family-columns {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.family-columns {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
 
-    .family-side {
-      min-width: auto; /* Let it shrink naturally */
-      max-width: 200px; /* Limit width if needed */
-      word-wrap: break-word; /* Allow wrapping if needed */
-      font-size: 0.95em;
-    }
+.family-side {
+  min-width: 160px;
+  text-align: center;
+  min-height: 100%
+}
 
-    .family-side div {
-      white-space: nowrap; /* Keep each line together */
-    }
+.divider {
+  width: 1px;
+  background-color: #7b6b4c;
+}
 
-    .divider {
-      width: 1px;
-      background-color: #7b6b4c;
-    }
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+  .family-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .family-side {
+    text-align: center;
+  }
+}
 
     .invite-text {
       font-style: italic;
@@ -345,24 +353,23 @@
               <button class="arrow right" onclick="scrollAlbum(1)">&#10095;</button>
             </div>
 
-      <div class="family-info animate">
-        <div class="family-columns">
-          <div class="family-side">
-            <div class="title">NHÀ TRAI</div>
-            <div>Ông. Nguyễn Thanh Tiến</div>
-            <div>Bà. Nguyễn Thị Thúy Diễm</div>
-            <div>TP. Long Xuyên</div>
-          </div>
-          <div class="divider"></div>
-          <div class="family-side">
-            <div class="title">NHÀ GÁI</div>
-            <div>Ông. Đào Văn Lợi</div>
-            <div>Bà. Lâm Thị Thanh Nguyệt</div>
-            <div>TX. Tân Châu</div>
-          </div>
-        </div>
-        <div class="invite-text">Thân mời đến dự lễ thành hôn của chúng tôi!</div>
-      </div>
+<div class="family-columns">
+  <div class="family-side">
+    <div class="title">NHÀ TRAI</div>
+    <div>Ông. Nguyễn Thanh Tiến</div>
+    <div>Bà. Nguyễn Thị Thúy Diễm</div>
+    <div>TP. Long Xuyên</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="family-side">
+    <div class="title">NHÀ GÁI</div>
+    <div>Ông. Đào Văn Lợi</div>
+    <div>Bà. Lâm Thị Thanh Nguyệt</div>
+    <div>TX. Tân Châu</div>
+  </div>
+</div>
 
 <div class="screen2-names">
   <div class="name-left">
